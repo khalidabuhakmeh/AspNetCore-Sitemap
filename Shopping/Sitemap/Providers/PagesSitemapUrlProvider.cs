@@ -32,9 +32,9 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
         foreach (var descriptor in _actionDescriptorCollectionProvider.ActionDescriptors.Items)
         {
             // LastOrDefault is used to get the closest SitemapAttribute to the endpoint
-            var exists = descriptor.EndpointMetadata.LastOrDefault(em => em is SitemapAttribute); 
+            var exists = descriptor.EndpointMetadata.LastOrDefault(em => em is SitemapAttribute);
             if (exists is not SitemapAttribute sitemapAttribute) continue;
-            
+
             var url = descriptor switch
             {
                 // Razor Pages
@@ -52,6 +52,7 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
 
             if (ShouldAddUrl(nodes, url))
             {
+                _logger.LogInformation("Adding page: {URL}", url);
                 nodes.Add(new SitemapNode(url)
                 {
                     ChangeFrequency = sitemapAttribute.ChangeFrequency,
@@ -62,7 +63,7 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
 
         return Task.FromResult<IReadOnlyCollection<SitemapNode>>(nodes);
     }
-    
+
     private static bool ShouldAddUrl(List<SitemapNode> nodes, string? url)
     {
         // if the url failed to generate, don't add a record
@@ -70,5 +71,4 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
         // if it already exists based on the URL, don't add it
         return !nodes.Exists(n => n.Url.Equals(url, StringComparison.OrdinalIgnoreCase));
     }
-    
 }

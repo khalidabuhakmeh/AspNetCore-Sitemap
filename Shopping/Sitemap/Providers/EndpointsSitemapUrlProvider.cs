@@ -36,6 +36,7 @@ public class EndpointsSitemapUrlProvider : ISitemapUrlProvider
                     .Where(i => HttpMethods.IsGet(i.HttpMethod ?? ""))
                     .Where(i => i.ActionDescriptor.EndpointMetadata.Any(em => em is SitemapAttribute));
 
+
             foreach (var endpoint in endpoints)
             {
                 var attribute = endpoint
@@ -65,6 +66,7 @@ public class EndpointsSitemapUrlProvider : ISitemapUrlProvider
 
                 if (ShouldAddUrl(nodes, url))
                 {
+                    _logger.LogInformation("Adding endpoint: {URL}", url);
                     nodes.Add(new SitemapNode(url)
                     {
                         ChangeFrequency = sitemapAttribute.ChangeFrequency,

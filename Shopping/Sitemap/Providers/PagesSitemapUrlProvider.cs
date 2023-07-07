@@ -5,18 +5,18 @@ using IsMvc = Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor;
 
 namespace Shopping.Sitemap.Providers;
 
-public class PagesSitemapSitemapUrlProvider : ISitemapUrlProvider
+public class PagesSitemapUrlProvider : ISitemapUrlProvider
 {
     private readonly LinkGenerator _linkGenerator;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IActionDescriptorCollectionProvider _actionDescriptorCollectionProvider;
-    private readonly ILogger<PagesSitemapSitemapUrlProvider> _logger;
+    private readonly ILogger<PagesSitemapUrlProvider> _logger;
 
-    public PagesSitemapSitemapUrlProvider(
+    public PagesSitemapUrlProvider(
         LinkGenerator linkGenerator,
         IHttpContextAccessor httpContextAccessor,
         IActionDescriptorCollectionProvider actionDescriptorCollectionProvider,
-        ILogger<PagesSitemapSitemapUrlProvider> logger)
+        ILogger<PagesSitemapUrlProvider> logger)
     {
         _linkGenerator = linkGenerator;
         _httpContextAccessor = httpContextAccessor;

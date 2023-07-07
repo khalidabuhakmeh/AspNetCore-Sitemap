@@ -8,13 +8,13 @@ public class EndpointsSitemapSitemapUrlProvider : ISitemapUrlProvider
     private readonly LinkGenerator _linkGenerator;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IApiDescriptionGroupCollectionProvider _apiDescriptionGroupCollectionProvider;
-    private readonly ILogger<PagesSitemapSitemapUrlProvider> _logger;
+    private readonly ILogger<PagesSitemapUrlProvider> _logger;
 
     public EndpointsSitemapSitemapUrlProvider(
         LinkGenerator linkGenerator,
         IHttpContextAccessor httpContextAccessor,
         IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider,
-        ILogger<PagesSitemapSitemapUrlProvider> logger)
+        ILogger<PagesSitemapUrlProvider> logger)
     {
         _linkGenerator = linkGenerator;
         _httpContextAccessor = httpContextAccessor;

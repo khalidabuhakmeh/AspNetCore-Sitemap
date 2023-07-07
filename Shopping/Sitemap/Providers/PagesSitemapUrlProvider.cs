@@ -45,7 +45,8 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
                     _linkGenerator.GetUriByAction(httpContext,
                         action: controller.ActionName,
                         controller: controller.ControllerName,
-                        values: controller.RouteValues),
+                        // use the values provided by the user (if any)
+                        values: sitemapAttribute.RouteValues),
                 _ => null
             };
 
@@ -69,4 +70,5 @@ public class PagesSitemapUrlProvider : ISitemapUrlProvider
         // if it already exists based on the URL, don't add it
         return !nodes.Exists(n => n.Url.Equals(url, StringComparison.OrdinalIgnoreCase));
     }
+    
 }

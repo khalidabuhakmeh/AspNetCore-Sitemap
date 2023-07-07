@@ -1,0 +1,14 @@
+@page "/products/{id:int}/{slug?}"
+@model Shopping.Pages.Products
+
+@{
+    var product = Model.Product!;
+    var name = product.Name;
+    var displayPrice = product.Price.ToString("C");
+    ViewData["Title"] = $"{name} ({displayPrice}) -- Products";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@name</h1>
+    <h2>Price: @displayPrice</h2>
+</div>

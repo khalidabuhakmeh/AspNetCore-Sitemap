@@ -6,9 +6,6 @@ namespace Shopping.Controllers;
 [ControllerSitemap]
 public class TestController : Controller
 {
-    private const decimal ControllerPriority = 1;
-    private const decimal ActionPriority = 2;
-    
     [ActionSitemap]
     [Route("test")]
     public IActionResult Index()
@@ -19,7 +16,6 @@ public class TestController : Controller
 
 public class ControllerSitemapAttribute : SitemapAttribute
 {
-    public const string Name = nameof(ControllerSitemapAttribute);
 }
 
 public class ActionSitemapAttribute : SitemapAttribute
@@ -28,6 +24,4 @@ public class ActionSitemapAttribute : SitemapAttribute
     {
         ChangeFrequency = DotnetSitemapGenerator.ChangeFrequency.Daily;
     }
-    
-    public const string Name = nameof(ActionSitemapAttribute);
 }

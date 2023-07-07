@@ -17,7 +17,7 @@ public static class SitemapExtensions
     {
         // add sitemap services
         services.AddScoped<ISitemapUrlProvider, PagesSitemapUrlProvider>();
-        services.AddScoped<ISitemapUrlProvider, EndpointsSitemapSitemapUrlProvider>();
+        services.AddScoped<ISitemapUrlProvider, EndpointsSitemapUrlProvider>();
         services.AddScoped<ISitemapUrlProvider, ProductSitemapSitemapUrlProvider>();
         services.AddScoped<SitemapBuilder>();
     }

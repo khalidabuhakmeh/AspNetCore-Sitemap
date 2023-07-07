@@ -26,9 +26,4 @@ public class IndexModel : PageModel
             .OrderBy(p => p.Id)
             .ToListAsync();
     }
-    
-    public async Task OnPostProduct()
-    {
-        
-    }
 }

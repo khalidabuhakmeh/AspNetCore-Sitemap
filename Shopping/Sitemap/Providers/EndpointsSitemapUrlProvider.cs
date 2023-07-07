@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace Shopping.Sitemap.Providers;
 
-public class EndpointsSitemapSitemapUrlProvider : ISitemapUrlProvider
+public class EndpointsSitemapUrlProvider : ISitemapUrlProvider
 {
     private readonly LinkGenerator _linkGenerator;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly IApiDescriptionGroupCollectionProvider _apiDescriptionGroupCollectionProvider;
     private readonly ILogger<PagesSitemapUrlProvider> _logger;
 
-    public EndpointsSitemapSitemapUrlProvider(
+    public EndpointsSitemapUrlProvider(
         LinkGenerator linkGenerator,
         IHttpContextAccessor httpContextAccessor,
         IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider,
